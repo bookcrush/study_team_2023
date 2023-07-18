@@ -23,7 +23,7 @@ function solution(users, emoticons) {
   const discountRateEnumContextList = permutation(4, emoticons.length);
   let [plusEnter, salesAmount] = [0, 0];
 
-  discountRateEnumContextList.map((discountRateEnumContext, idx) => {
+  discountRateEnumContextList.forEach((discountRateEnumContext) => {
     let [_plusEnter, _salesAmount] = [0, 0];
 
     users.forEach(([비율, 최대가격]) => {
@@ -53,7 +53,10 @@ function solution(users, emoticons) {
   return [plusEnter, salesAmount];
 }
 
-// 중복 순열 DFS
+/*
+  중복 순열 DFS
+  @reference https://velog.io/@rladpwl0512/8-8-%EC%A4%91%EB%B3%B5%EC%88%9C%EC%97%B4-%EA%B5%AC%ED%95%98%EA%B8%B0
+*/
 function permutation(n, m) {
   let answer = [];
   let tmp = Array.from({ length: m }, () => 0);
@@ -72,5 +75,3 @@ function permutation(n, m) {
   DFS(0);
   return answer;
 }
-
-// permutation(3, 2);
